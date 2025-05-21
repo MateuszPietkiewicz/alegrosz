@@ -18,7 +18,7 @@ class ProductRepository:
         return db.query(Product).offset(skip).limit(limit).all()
 
     @staticmethod
-    def search(db: Session, term: str, skip: int = 0, limit: int =100) -> list(type(Product)):
+    def search(db: Session, term: str, skip: int = 0, limit: int =100) -> list[type[Product]]:
         return db.query(Product).filter(
             or_(
                 Product.name.ilike(f"%{term}%"),
@@ -27,7 +27,7 @@ class ProductRepository:
             ).offset(skip).limit(limit).all()
 
     @staticmethod
-    def filter_by_price(db: Session, min_price: float | None = None, max_price:float | None = None,skip: int = 0, limit: int =100) -> list(type(Product)):
+    def filter_by_price(db: Session, min_price: float | None = None, max_price:float | None = None,skip: int = 0, limit: int =100) -> list[type[Product]]:
         query = db.query(Product)
 
         if min_price is not None:
