@@ -41,7 +41,7 @@ def init_database(force_recreate=False):
     return True
 
 def load_sample_data():
-    file_path=Path(config.ROOT_DIR / "fixtures"/ "sample_data.json")
+    file_path=Path(config.ROOT_DIR) / "fixtures"/ "sample_data.json"
 
     if not file_path.exists():
         raise FileNotFoundError("Sample data file not found.")
@@ -59,7 +59,7 @@ def load_sample_data():
         db.add(Location(**location))
         db.flush()
 
-    for inventory in data["invenotry"]:
+    for inventory in data["inventory"]:
         db.add(InventoryItem(**inventory))
         db.flush()
 

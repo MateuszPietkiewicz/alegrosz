@@ -17,7 +17,7 @@ class InventoryItem(Base):
     reorder_point = Column(Integer, nullable=False, default=0)
     last_updated = Column(DateTime, default=lambda: datetime.datetime.now(datetime.timezone.utc), onupdate=func.now())
 
-    product = relationship("Product", back_populates="inventory_item")
+    product = relationship("Product", back_populates="inventory_items")
     location = relationship("Location", back_populates="inventory_item")
 
     def __repr__(self):

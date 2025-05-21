@@ -12,7 +12,7 @@ class Location(Base):
     capacity = Column(Integer, nullable=False)
 
 
-    inventory_items = relationship("InventoryItem", back_populates="location", cascade="all, delete")
+    inventory_item = relationship("InventoryItem", back_populates="location", cascade="all, delete")
 
     def __repr__(self):
         return f"{type(self).__name__}(id={self.id}, name={self.name})"
