@@ -82,6 +82,7 @@ class ProductRepository:
         db.refresh(product)
         return product
 
+product_repository = ProductRepository()
 
 
 

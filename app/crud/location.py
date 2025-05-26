@@ -120,4 +120,6 @@ class LocationRepository:
         db.commit()
         return True
 
+location_repository = LocationRepository()
+
 
